@@ -43,3 +43,4 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'paperclip', '~> 4.2'
 gem "cocoon"
+gem 'devise'
