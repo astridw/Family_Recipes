@@ -1,0 +1,2 @@
+module RecipesBoxHelper
+end
