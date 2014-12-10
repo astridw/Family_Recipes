@@ -1,0 +1,16 @@
+<h1>Meals</h1>
+
+<div id="recipes">
+  <%= calendar do |date|  %>
+    <%= date.day %>
+      <%= if @recipes_by_date[date] %>
+      <ul>
+        <%= @recipes_by_date.each do |recipe| %>
+        <li> <%= link_to recipe.name, recipe %> </li>
+        <% end %>
+      </ul>
+  <% end  %>
+<%end %>
+</div>
+
+<p><%= link_to "New Recipe", new_recipe_path  %></p>

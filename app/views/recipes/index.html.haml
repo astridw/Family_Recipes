@@ -1,3 +1,15 @@
+-# = link_to "Add family member", relationships_path(:family_id => user), :method => :post
+-# %h1 Meals
+-# #recipe
+-#   = calendar do |date|
+-#     = date.day
+-#     = if @recipe_by_date[date]
+-#       %ul
+-#         = @recipe_by_date.each do |recipe|
+-#           %li
+-#             = link_to recipe.name, recipe
+-# %p= link_to "New Recipe", new_recipe_path
+
 - @recipe.each_slice(3) do |recipes|
   .row
     - recipes.each do |recipe|
@@ -7,3 +19,10 @@
             = link_to recipe do
               = image_tag recipe.image.url(:medium)
           %h2= link_to recipe.title, recipe
+
+      -# .col-md-7.well
+      -#   - if !@current_user.families.include? @user
+      -#     = button_to 'Follow', relationships_path(family_id: @user.id)
+      -#   - else
+      -#     = button_to 'UnFollow', relationships_path(user_id: @current_id, family_id: @user.id), method: :delete
+      -#     = link_to 'All the user', public_path(user_id: @current_user.id)

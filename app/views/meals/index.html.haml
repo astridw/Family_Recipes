@@ -1,0 +1,5 @@
+%h2 Meals
+#recipes
+  = calendar do |date|
+    = date.day
+%p= link_to "New Recipe", new_recipe_path

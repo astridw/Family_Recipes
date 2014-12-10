@@ -1,3 +1,9 @@
+// $bgColorContent: purple;
+@import 'themes/jquery.ui.smoothness';
+@import 'jquery.ui.core';
+@import 'jquery.ui.theme';
+@import 'jquery.ui.datepicker';
+@import 'jquery.ui.all';
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -27,6 +33,7 @@ body {
   margin-bottom: 50px;
   @include box-shadow;
   border: none;
+  text-transform: uppercase;
   .navbar-brand {
     text-transform: uppercase;
     letter-spacing: -1px;
@@ -54,7 +61,7 @@ body {
     -o-transition: all .3s ease-out;
     transition: all .3s ease-out;
     &:hover {
-      transform: scale(1.075);
+      transform: scale(1.105);
     }
   }
   h2 {

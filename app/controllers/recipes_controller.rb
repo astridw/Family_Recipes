@@ -4,17 +4,18 @@ class RecipesController < ApplicationController
 
   def index
     @recipe = Recipe.all.order("created_at desc")
+    @recipe_by_date = @recipe.group_by(&:make_recipe_date)
   end
 
   def show
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.build
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
     if @recipe.save
       redirect_to @recipe, notice: "Your new reciepe was created successfully!"
     else
@@ -39,13 +40,14 @@ class RecipesController < ApplicationController
   end
 
 
+
   private
   def find_recipe
     @recipe = Recipe.find(params[:id])
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :image,
+    params.require(:recipe).permit(:title, :description, :image, :make_recipe_date,
     ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
   end
 

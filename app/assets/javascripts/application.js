@@ -12,7 +12,23 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+// require jquery.turbolinks
 //= require jquery_ujs
 //= require cocoon
+//= require jquery.ui.all
 //= require turbolinks
 //= require_tree .
+
+// $('#recipe_make_recipe_date').datepicker()
+
+// $(function() {
+//   $('.recipe_make_recipe_date').datepicker();
+// });
+
+$(document).ready(function() {
+  $('#recipe_make_recipe_date').datepicker({
+    changeMonth: true,
+    changeYear: true,
+    yearRange: '-1: +58'
+  });
+});
