@@ -19,16 +19,12 @@
 //= require turbolinks
 //= require_tree .
 
-// $('#recipe_make_recipe_date').datepicker()
-
-// $(function() {
-//   $('.recipe_make_recipe_date').datepicker();
-// });
 
 $(document).ready(function() {
   $('#recipe_make_recipe_date').datepicker({
     changeMonth: true,
     changeYear: true,
-    yearRange: '-1: +58'
+    yearRange: '-1: +58',
+    dateFormat: "yy-mm-dd"
   });
 });

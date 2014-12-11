@@ -12,6 +12,15 @@ class RecipesController < ApplicationController
   end
 
   def show
+    respond_to do |wants|
+      wants.html.haml
+      wants.ics do
+        calendar = Icalendar::Calendar.new
+        calendar.add_event(@recipe.to_ics)
+        calendar.publish
+        render :text => calendar.to_ical
+      end
+    end
   end
 
 

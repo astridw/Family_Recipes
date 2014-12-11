@@ -10,7 +10,7 @@
         %p.recipe_date= @recipe.make_recipe_date
         - @recipe.tags.each do |tag|
           = link_to tag.name, recipe_tag_path(tag_name: tag.name)
-
+          = link_to "Add to iCal", :controller => 'recipes', :action => :show, :format => :ics
   .row
     .col-md-6
       #ingredients

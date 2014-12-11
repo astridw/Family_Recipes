@@ -14,4 +14,23 @@ class Recipe < ActiveRecord::Base
     tsearch: {dictionary: "english"}
   }
   acts_as_taggable
+
+  def to_ics
+    event = Icalendar::Event.new
+    event.dtstart = Icalendar::Values::Date.new self.make_recipe_date.beginning_of_day
+    event.dtend = Icalendar::Values::Date.new self.make_recipe_date.end_of_day
+    event.summary = self.title
+    event.description = self.description
+    # event.location = 'Here !'
+    event.ip_class = "PUBLIC"
+    event.created = self.created_at
+    event.last_modified = self.updated_at
+    # event.uid = event.url = "#{"http://jordansmith.me/"}gig/#{self.id}"
+    # event.add_comment("AF83 - Shake your digital, we do WowWare")
+    event
+  end
+
+  def end_time
+    make_recipe_date.strftime("%Y%m%dT") + self.end.to_datetime.strftime("%H%M%S")
+  end
 end
