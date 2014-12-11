@@ -13,8 +13,7 @@
     = f.input :image
     = f.input :tag_list, label: "Tags", hint: "ex: Beverage, Dessert,Main Course"
     = f.input :make_recipe_date,:as => :string, :input_html => { :class => 'jquery-ui-date'}
-    -# = f.input :make_recipe_date , :as => :date_picker, :input_html => { :class=> "ui-datepicker", :value => (f.object.make_recipe_date.try(:strftime,'%m/%d/%Y'))}
-
+    
     .row
       .col-md-6
         %h3 Ingredients
