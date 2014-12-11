@@ -37,7 +37,7 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'rails_12factor'
 gem 'haml', '~> 4.0.5'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.1'
@@ -46,3 +46,4 @@ gem "cocoon"
 gem 'devise'
 gem 'jquery-ui-sass-rails'
 gem 'jquery-ui-rails'
+gem 'pg_search'

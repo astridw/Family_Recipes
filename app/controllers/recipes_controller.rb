@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
   def index
     @recipe = Recipe.all.order("created_at desc")
     @recipe_by_date = @recipe.group_by(&:make_recipe_date)
+    @recipe = @recipe.search(params[:search]) if params[:search].present?
   end
 
   def show
