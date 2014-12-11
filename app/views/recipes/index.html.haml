@@ -19,6 +19,8 @@
             = link_to recipe do
               = image_tag recipe.image.url(:medium)
           %h2= link_to recipe.title, recipe
+          - recipe.tags.each do |tag|
+            = link_to tag.name, recipe_tag_path(tag_name: tag.name)
 
       -# .col-md-7.well
       -#   - if !@current_user.families.include? @user

@@ -13,4 +13,5 @@ class Recipe < ActiveRecord::Base
   using: {
     tsearch: {dictionary: "english"}
   }
+  acts_as_taggable
 end
