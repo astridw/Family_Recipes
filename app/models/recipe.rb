@@ -4,8 +4,11 @@ class Recipe < ActiveRecord::Base
   has_many :directions
   accepts_nested_attributes_for :ingredients, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :directions, :reject_if => :all_blank, :allow_destroy => true
-  has_attached_file :image, styles: {medium: "600x600#",thumb: "300x300#"}
+  has_attached_file :image,
+                    styles: {medium: "600x600#",thumb: "300x300#"},
+                    :default_url => "/assets/:medium/missing_avatar.gif"
   validates_attachment_content_type :image, :content_type => /\Aimage/
+  has_attached_file :attach
   validates :title, :description, :image, presence: true
   include PgSearch
   pg_search_scope :search,
@@ -25,8 +28,6 @@ class Recipe < ActiveRecord::Base
     event.ip_class = "PUBLIC"
     event.created = self.created_at
     event.last_modified = self.updated_at
-    # event.uid = event.url = "#{"http://jordansmith.me/"}gig/#{self.id}"
-    # event.add_comment("AF83 - Shake your digital, we do WowWare")
     event
   end
 

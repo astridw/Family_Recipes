@@ -1,18 +1,14 @@
 -# = link_to "Add family member", relationships_path(:family_id => user), :method => :post
--# %h1 Meals
--# #recipe
--#   = calendar do |date|
--#     = date.day
--#     = if @recipe_by_date[date]
--#       %ul
--#         = @recipe_by_date.each do |recipe|
--#           %li
--#             = link_to recipe.name, recipe
--# %p= link_to "New Recipe", new_recipe_path
+-# %ul
+-#   - @recipe.each do |recipe|
+-#     - recipe.tags.each do |tag|
+-#       %li.tags= link_to tag.name, recipe_tag_path(tag_name: tag.name)
 
 - @recipe.each_slice(3) do |recipes|
   .row
     - recipes.each do |recipe|
+      -# - recipe.tags.each do |tag|
+      -#   = link_to tag.name, recipe_tag_path(tag_name: tag.name)
       .col-md-4
         .recipe
           .image-wrapper
