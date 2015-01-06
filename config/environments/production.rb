@@ -79,9 +79,9 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['S3_BUCKET'],
-      :access_key_id => ENV['SECRET_KEY_ID'],
-      :secret_access_key => ENV['SECRET_KEY']
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET']
     }
   }
 end
